@@ -1,6 +1,6 @@
 === Hide Title ===
 
-Contributors: Randall Runnels
+Contributors: dojodigital
 Plugin Name: Hide Title
 Plugin URI: http://dojodigital.com/developer-tools/hide-title/
 Tags: wp, title
