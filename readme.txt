@@ -46,7 +46,6 @@ This plugin allows the author of a post or page to hide the title and it's conta
 By default this plugin looks for the `.entry-title` class and hides it. If it doesn't find it it will look for any `h1` or `h2` elements that contain the title and hide them instead. To change the default `.entry-title` selector to something that makes more sense to you, add the following code to the functions.php file of your current theme:
 
 `global $DojoDigitalHideTitle;
-global $DojoDigitalHideTitle;
 if ( isset( $DojoDigitalHideTitle ) ){
 	// Be sure to replace ".your-selector" with your selector!
 	$DojoDigitalHideTitle->set_selector('.entry-title');
