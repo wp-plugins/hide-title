@@ -13,7 +13,6 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
     class DojoDigitalHideTitle {
         
     	private $slug = 'dojodigital_toggle_title';
-    	private $selector = '.entry-title';
     	
         /**
         * PHP 4 Compatible Constructor
@@ -62,17 +61,10 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 <!-- Dojo Digital Hide Title -->
 <script type="text/javascript">
 	jQuery(document).ready(function($){
-	
-		if( $('<?php echo $this->selector; ?>') ){
-			$('<?php echo $this->selector; ?> span.<?php echo $this->slug; ?>').parents('<?php echo $this->selector; ?>:first').hide();
-		} else {
-			$('h1 span.<?php echo $this->slug; ?>').parents('h1:first').hide();
-			$('h2 span.<?php echo $this->slug; ?>').parents('h2:first').hide();
-		}
-		
+		$('.<?php echo $this->slug; ?>').parent().hide();
 	});
-</script>
-<noscript><style type="text/css"> <?php echo $this->selector; ?> { display:none !important; }</style></noscript>
+</script>	
+<noscript><style type="text/css">.<?php echo $this->slug; ?>, .entry-title { display:none !important; }</style></noscript>
 <!-- END Dojo Digital Hide Title -->
 				
 			<?php }
@@ -156,16 +148,6 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 			delete_post_meta( $postID, $this->slug );
 			return $postID;
 		} // on_delete()
-		
-		
-		public function set_selector( $selector ){
-		
-			if( isset( $selector ) && is_string( $selector ) ){
-				$this->selector = $selector;
-			}
-		
-		} // set_selector()
-		
       
     } // DojoDigitalHideTitle
     
