@@ -3,7 +3,7 @@
 Plugin Name: Hide Title
 Plugin URI: http://dojodigital.com
 Description: Allows authors to hide the title tag on single pages and posts via the edit post screen.
-Version: 1.0.0
+Version: 1.0.1
 Author: Randall Runnels
 Author URI: http://dojodigital.com
 */
