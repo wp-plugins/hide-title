@@ -62,8 +62,7 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 <!-- Dojo Digital Hide Title -->
 <script type="text/javascript">
 	jQuery(document).ready(function($){
-	
-		if( $('<?php echo $this->selector; ?>') ){
+		if( $('<?php echo $this->selector; ?>').length != 0 ){
 			$('<?php echo $this->selector; ?> span.<?php echo $this->slug; ?>').parents('<?php echo $this->selector; ?>:first').hide();
 		} else {
 			$('h1 span.<?php echo $this->slug; ?>').parents('h1:first').hide();
