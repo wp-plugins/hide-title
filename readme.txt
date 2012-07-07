@@ -30,7 +30,8 @@ This plugin allows the author of a post or page to hide the title and it's conta
 
 = 1.0.1 =
 
-* Changed the jQuery to use a less brute force method of hiding the title. Added a set_selector() method to allow end-users to specify the css selector to hide. Tagged version 1.0.1
+* Changed the jQuery to use a less brute force method of hiding the title.
+* Added a set_selector() method to allow end-users to specify the css selector to hide.
 
 == Upgrade Notice == 
 
@@ -45,8 +46,11 @@ This plugin allows the author of a post or page to hide the title and it's conta
 By default this plugin looks for the `.entry-title` class and hides it. If it doesn't find it it will look for any `h1` or `h2` elements that contain the title and hide them instead. To change the default `.entry-title` selector to something that makes more sense to you, add the following code to the functions.php file of your current theme:
 
 `global $DojoDigitalHideTitle;
-// Be sure to replace ".your-selector" with your selector!
-$DojoDigitalHideTitle->set_selector('.your-selector');`
+global $DojoDigitalHideTitle;
+if ( isset( $DojoDigitalHideTitle ) ){
+	// Be sure to replace ".your-selector" with your selector!
+	$DojoDigitalHideTitle->set_selector('.entry-title');
+}`
 
 As noted in the comments, you'll need to replace the string `.your-selector` with the css selector you'd like hidden. It can be any valid css selector such as `h1`, `.myclass`, `#myid`, etc. I recommend using a class or id to avoid accidentally hiding unforeseen elements.
 

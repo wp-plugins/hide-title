@@ -135,7 +135,11 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 			}
 			
 			$old = get_post_meta( $postID, $this->slug, true );
-			$new = $_POST[ $this->slug ] ;
+			if( isset( $_POST[ $this->slug ] ) ){
+				$new = $_POST[ $this->slug ];
+			} else {
+				$new = null;
+			}
 			
 			if( $old ){
 				if ( is_null( $new ) ){
