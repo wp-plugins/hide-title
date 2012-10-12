@@ -7,9 +7,9 @@ Tags: wp, title
 Author URI: http://dojodigital.com/
 Author: Dojo Digital
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 1.0.1
-Version: 1.0.1
+Tested up to: 3.4.2
+Stable tag: 1.0.2
+Version: 1.0.2
 
 Allows authors to hide the title on single pages and posts via the edit post screen.
 
@@ -28,12 +28,21 @@ This plugin allows the author of a post or page to hide the title and it's conta
 
 == Changelog == 
 
+= 1.0.2 =
+
+* Added logic to detect wp_head which prevents changes being made to the title in the <head> area.
+* Fixed a bug that caused multiple meta field entries.
+
 = 1.0.1 =
 
 * Changed the jQuery to use a less brute force method of hiding the title.
 * Added a set_selector() method to allow end-users to specify the css selector to hide.
 
 == Upgrade Notice == 
+
+= 1.0.2 =
+
+* This version detects wp_head to prevent changes being made to the title in the <head> area and fixed a glitch reported by several users that caused multiple meta entries to be created.
 
 = 1.0.1 =
 
@@ -46,10 +55,8 @@ This plugin allows the author of a post or page to hide the title and it's conta
 By default this plugin looks for the `.entry-title` class and hides it. If it doesn't find it it will look for any `h1` or `h2` elements that contain the title and hide them instead. To change the default `.entry-title` selector to something that makes more sense to you, add the following code to the functions.php file of your current theme:
 
 `global $DojoDigitalHideTitle;
-if ( isset( $DojoDigitalHideTitle ) ){
-	// Be sure to replace ".your-selector" with your selector!
-	$DojoDigitalHideTitle->set_selector('.entry-title');
-}`
+// Be sure to replace ".your-selector" with your selector!
+$DojoDigitalHideTitle->set_selector('.your-selector');`
 
 As noted in the comments, you'll need to replace the string `.your-selector` with the css selector you'd like hidden. It can be any valid css selector such as `h1`, `.myclass`, `#myid`, etc. I recommend using a class or id to avoid accidentally hiding unforeseen elements.
 

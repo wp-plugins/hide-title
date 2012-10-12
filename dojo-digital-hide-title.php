@@ -13,7 +13,9 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
     class DojoDigitalHideTitle {
         
     	private $slug = 'dojodigital_toggle_title';
-    	private $selector = '.entry-title';
+    	private $selector = '.page-title';
+    	private $title;
+    	private $afterHead = false;
     	
         /**
         * PHP 4 Compatible Constructor
@@ -28,7 +30,7 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 	        add_action( 'add_meta_boxes', array( $this, 'add_box' ) );
 			add_action( 'save_post', array( $this, 'on_save' ) );
 			add_action( 'delete_post', array( $this, 'on_delete' ) );
-			add_action( 'wp_head', array( $this, 'head_insert' ) );
+			add_action( 'wp_head', array( $this, 'head_insert' ), 3000 );
 			add_action( 'the_title', array( $this, 'wrap_title' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
 
@@ -62,7 +64,8 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 <!-- Dojo Digital Hide Title -->
 <script type="text/javascript">
 	jQuery(document).ready(function($){
-		if( $('<?php echo $this->selector; ?>').length != 0 ){
+	
+		if( $('<?php echo $this->selector; ?>') ){
 			$('<?php echo $this->selector; ?> span.<?php echo $this->slug; ?>').parents('<?php echo $this->selector; ?>:first').hide();
 		} else {
 			$('h1 span.<?php echo $this->slug; ?>').parents('h1:first').hide();
@@ -75,6 +78,9 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 <!-- END Dojo Digital Hide Title -->
 				
 			<?php }
+			
+			// Indicate that the header has run so we can hopefully prevent adding span tags to the meta attributes, etc.
+			$this->afterHead = true;
 			
 		} // head_insert()
 		
@@ -109,7 +115,7 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 		
 		public function wrap_title( $content ){
 			
-			if( $this->is_hidden() ){
+			if( $this->is_hidden() && $content == $this->title && $this->afterHead ){
 				$content = '<span class="' . $this->slug . '">' . $content . '</span>';
 			}
 			
@@ -120,7 +126,15 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 		
 		public function load_scripts(){
 			
-			if( $this->is_hidden() ){ wp_enqueue_script( 'jquery' ); }
+				
+			// Grab the title early in case it's overridden later by extra loops. 
+			global $post;
+			$this->title = $post->post_title;
+				
+			if( $this->is_hidden() ){ 
+				wp_enqueue_script( 'jquery' );
+			
+			}
 			
 		} // load_scripts()
 		
@@ -134,11 +148,7 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 			}
 			
 			$old = get_post_meta( $postID, $this->slug, true );
-			if( isset( $_POST[ $this->slug ] ) ){
-				$new = $_POST[ $this->slug ];
-			} else {
-				$new = null;
-			}
+			$new = $_POST[ $this->slug ] ;
 			
 			if( $old ){
 				if ( is_null( $new ) ){
