@@ -2,7 +2,7 @@
 
 Contributors: dojodigital
 Plugin Name: Hide Title
-Plugin URI: http://dojodigital.com/developer-tools/hide-title/
+Plugin URI: http://hidetitle.dojodigital.com/
 Tags: wp, title
 Author URI: http://dojodigital.com/
 Author: Dojo Digital
@@ -30,7 +30,7 @@ This plugin allows the author of a post or page to hide the title and it's conta
 
 = 1.0.2 =
 
-* Added logic to detect wp_head which prevents changes being made to the title in the <head> area.
+* Added logic to flag when wp_head has run to prevent changes being made to the title in the &gt;head&lt; area.
 * Fixed a bug that caused multiple meta field entries.
 
 = 1.0.1 =
@@ -42,13 +42,18 @@ This plugin allows the author of a post or page to hide the title and it's conta
 
 = 1.0.2 =
 
-* This version detects wp_head to prevent changes being made to the title in the <head> area and fixed a glitch reported by several users that caused multiple meta entries to be created.
+* This version flags when wp_head has run to prevent changes being made to the title in the <head> area and fixed a glitch reported by several users that caused multiple meta entries to be created.
 
 = 1.0.1 =
 
 * This version uses a less brute force method of hiding the title by trying to find and hide `.entry-title` before looking for the title inside of `h1` or `h2` tags and hiding them. This version also adds a method for theme editors to change the selector from the default `.entry-title` to whatever they want to use.
 
 == Frequently Asked Questions ==
+
+
+= I upgraded to 1.0.2 and the plugin stopped working. Why? =
+
+* It is possible that your theme does not have the wp_head function in it's header.php file. In general all themes are suppose to have it, and version 1.0.2 looks for it to prevent adding bad code to the &gt;head&lt; area of the page. If you have access to your theme file simply add `<?php wp_head(); ?>` to header.php just before the `</head>` tag. If not, this plugin will no longer be compatible with your theme. 
 
 = Hey! This plugin is hiding things I don't want hidden! =
 
