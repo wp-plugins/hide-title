@@ -30,7 +30,7 @@ This plugin allows the author of a post or page to hide the title and it's conta
 
 = 1.0.2 =
 
-* Added logic to detect wp_head which prevents changes being made to the title in the <head> area.
+* Added logic to flag when wp_head has run to prevent changes being made to the title in the &gt;head&lt; area.
 * Fixed a bug that caused multiple meta field entries.
 
 = 1.0.1 =
@@ -42,7 +42,7 @@ This plugin allows the author of a post or page to hide the title and it's conta
 
 = 1.0.2 =
 
-* This version detects wp_head to prevent changes being made to the title in the <head> area and fixed a glitch reported by several users that caused multiple meta entries to be created.
+* This version flags when wp_head has run to prevent changes being made to the title in the <head> area and fixed a glitch reported by several users that caused multiple meta entries to be created.
 
 = 1.0.1 =
 
