@@ -13,7 +13,7 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
     class DojoDigitalHideTitle {
         
     	private $slug = 'dojodigital_toggle_title';
-    	private $selector = '.page-title';
+    	private $selector = '.entry-title';
     	private $title;
     	private $afterHead = false;
     	
@@ -65,7 +65,7 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 <script type="text/javascript">
 	jQuery(document).ready(function($){
 	
-		if( $('<?php echo $this->selector; ?>') ){
+		if( $('<?php echo $this->selector; ?>') ) {
 			$('<?php echo $this->selector; ?> span.<?php echo $this->slug; ?>').parents('<?php echo $this->selector; ?>:first').hide();
 		} else {
 			$('h1 span.<?php echo $this->slug; ?>').parents('h1:first').hide();
@@ -157,7 +157,7 @@ if ( !class_exists( 'DojoDigitalHideTitle' ) ) {
 					update_post_meta( $postID, $this->slug, $new, $old );
 				}
 			} elseif ( !is_null( $new ) ){
-				add_post_meta( $postID, $this->slug, $new );
+				add_post_meta( $postID, $this->slug, $new, true );
 			}
 				
 			return $postID;
