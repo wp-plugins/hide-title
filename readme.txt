@@ -8,8 +8,8 @@ Author URI: http://dojodigital.com/
 Author: Dojo Digital
 Requires at least: 3.0
 Tested up to: 3.4.2
-Stable tag: 1.0.2
-Version: 1.0.2
+Stable tag: 1.0.3
+Version: 1.0.3
 
 Allows authors to hide the title on single pages and posts via the edit post screen.
 
@@ -28,6 +28,10 @@ This plugin allows the author of a post or page to hide the title and it's conta
 
 == Changelog == 
 
+= 1.0.3 =
+
+* Fixed a jQuery bug which prevented fallbacks in the case that the selector was not found.
+
 = 1.0.2 =
 
 * Added logic to flag when wp_head has run to prevent changes being made to the title in the &gt;head&lt; area.
@@ -39,6 +43,10 @@ This plugin allows the author of a post or page to hide the title and it's conta
 * Added a set_selector() method to allow end-users to specify the css selector to hide.
 
 == Upgrade Notice == 
+
+= 1.0.3 =
+
+* This version fixes a jQuery bug which prevented fallbacks in the case that the selector was not found.
 
 = 1.0.2 =
 
@@ -69,8 +77,3 @@ As noted in the comments, you'll need to replace the string `.your-selector` wit
 
 I could, but I'd like to avoid adding Yet Another Options Page if I can. If enough people request it though, I'll go ahead and bite the bullet.
 
-
-
-
-
- 
