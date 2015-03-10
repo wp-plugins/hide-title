@@ -16,7 +16,7 @@ Allows authors to hide the title on single pages and posts via the edit post scr
 == Description ==
 
 This plugin allows the author of a post or page to hide the title and it's containing HTML element from the single view ( is_singular() ).
- 
+
 == Installation ==
 
 1. Upload the `hide-title` folder to the `/wp-content/plugins/` directory
@@ -26,7 +26,7 @@ This plugin allows the author of a post or page to hide the title and it's conta
 
 1. This Meta Box will be added to the Edit screen for pages & posts
 
-== Changelog == 
+== Changelog ==
 
 = 1.0.3 =
 
@@ -42,7 +42,7 @@ This plugin allows the author of a post or page to hide the title and it's conta
 * Changed the jQuery to use a less brute force method of hiding the title.
 * Added a set_selector() method to allow end-users to specify the css selector to hide.
 
-== Upgrade Notice == 
+== Upgrade Notice ==
 
 = 1.0.3 =
 
@@ -61,7 +61,7 @@ This plugin allows the author of a post or page to hide the title and it's conta
 
 = I upgraded to 1.0.2 and the plugin stopped working. Why? =
 
-It is possible that your theme does not have the wp_head function in it's header.php file. In general all themes are suppose to have it, and version 1.0.2 looks for it to prevent adding bad code to the `<head>` area of the page. If you have access to your theme file simply add `<?php wp_head(); ?>` to header.php just before the `</head>` tag. If not, this plugin will no longer be compatible with your theme. 
+It is possible that your theme does not have the wp_head function in it's header.php file. In general all themes are suppose to have it, and version 1.0.2 looks for it to prevent adding bad code to the `<head>` area of the page. If you have access to your theme file simply add `<?php wp_head(); ?>` to header.php just before the `</head>` tag. If not, this plugin will no longer be compatible with your theme.
 
 = Hey! This plugin is hiding things I don't want hidden! =
 
