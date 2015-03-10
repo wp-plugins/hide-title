@@ -1,15 +1,15 @@
 === Hide Title ===
 
-Contributors: dojodigital
+Contributors: dojodigital, kraftbj
 Plugin Name: Hide Title
 Plugin URI: http://hidetitle.dojodigital.com/
 Tags: wp, title
 Author URI: http://dojodigital.com/
 Author: Dojo Digital
-Requires at least: 3.0
-Tested up to: 3.4.2
-Stable tag: 1.0.3
-Version: 1.0.3
+Requires at least: 3.2
+Tested up to: 4.2
+Stable tag: 1.0.4
+Version: 1.0.4
 
 Allows authors to hide the title on single pages and posts via the edit post screen.
 
@@ -28,6 +28,11 @@ This plugin allows the author of a post or page to hide the title and it's conta
 
 == Changelog ==
 
+= 1.0.4 =
+
+* Now compatible with latest versions of WordPress
+* PHP 4 is no longer supported.
+
 = 1.0.3 =
 
 * Fixed a jQuery bug which prevented fallbacks in the case that the selector was not found.
@@ -43,6 +48,9 @@ This plugin allows the author of a post or page to hide the title and it's conta
 * Added a set_selector() method to allow end-users to specify the css selector to hide.
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+* Fixes errors on latest versions of WordPress.
 
 = 1.0.3 =
 
@@ -76,4 +84,8 @@ As noted in the comments, you'll need to replace the string `.your-selector` wit
 = I don't want to edit my theme files, can't you just add an option page? =
 
 I could, but I'd like to avoid adding Yet Another Options Page if I can. If enough people request it though, I'll go ahead and bite the bullet.
+
+= Who is the author of this plugin anyway? =
+
+This plugin was originally was developed by Randall Runnels of Dojo Digital. In March 2015, the plugin was not compatible with the latest version of WordPress. After finding the problem, Brandon Kraft reached out with a solution, but didn't hear a response. He contacted the Plugins team at WordPress.org with an offer to assume development to bring it up date. The plugins team reached out and either recieved the approval of Randall, did not hear back at all, or the e-mail bounced.
 
